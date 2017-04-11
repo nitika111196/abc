@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="mystyle.css">
+        <style>
+            @keyframes drop {
+              0% {
+                  transform: translate3d(10px,10px,5px);
+              }
+              100% {
+                  transform: translateX(0);
+              }
+            }
+            .divition{
+                width:450px;
+                height:auto;
+                background-color:rgb(240,240,240);
+                margin:auto;
+                animation:drop 0.6s ease-out;
+            }
+            .style1{font-size:16px;
+              color:#646464;
+              font-family:Arial;
+              letter-spacing:normal;
+              text-decoration:none;
+            }
+            span{
+              color:red;
+              text-transform: lowercase;
+              font-size:15px;
+              font-family: calibri;
+              letter-spacing: 0;
+            }
+        </style>
+        <script language="javascript">
+            var  chk_emailid = 0;
+            function check_emailid(){
+                var emailid = /^[a-z]{1,}[a-zA-Z0-9._]{1,}@[a-zA-Z]{1,}(\.[a-z]+)?\.[a-zA-Z]{2,3}$/;
+                if( !emailid.test(document.login.emailid.value) ){
+                    document.getElementById('chk_emailid').innerHTML = "Please type correct format";
+                    document.login.emailid.setAttribute('style','border:1px solid red;');
+                    chk_emailid = 1;
+                }
+                else{
+                  document.getElementById('chk_emailid').innerHTML = "";
+                  document.login.emailid.setAttribute('style','border:1px solid skyblue;');
+                  chk_emailid = 0;
+                }
+            }
+            function validate(){
+              if( chk_emailid == 1){
+                  return false;
+              }
+              else{
+                return true;
+              }
+            }
+        </script>
+    </head>
+    <body style="background-color:rgb(220,220,220)" onload="document.login.emailid.focus()"><br /><br /><br /><br /><br /><br /><br />
+        <form name="login" action="https://www.google.co.in/" onsubmit="return validate();">
+        <div class="divition">
+                <table cellspacing=10px style="font-family:Impact;letter-spacing:5;font-size:20px;margin:auto;">
+                    <tr>
+                        <th colspan=2><h1 style="color:#4d4d4d">LOGIN</h1></th>
+                    </tr>
+                    <tr>
+                        <th colspan=2>
+                          <input style="height:50px;font-size:20px" type="text" class="textbox" placeholder="Email" name="emailid"  onblur="check_emailid()" maxlength=30 required>
+                            <br /> <span id="chk_emailid"></span>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th colspan=2><input style="height:50px;font-size:20px" required type="password" class="textbox" placeholder="Password" name="password" onblur="check_password()" maxlength=30 required>
+                          <br /> <span id="chk_password"></span></th>
+                    </tr>
+                    <tr>
+                        <th colspan=2><input type="submit" class="button" value="SIGN IN" name="btnlogi"></th>
+                    </tr>
+                    <tr>
+                        <th style="text-align:center">
+                          <span class="style1">Forgot Your Password? Click <a href="#" style="font-weight:bold;size:14px;color:black"><i>here</i></a>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th><span id="lblmessage" style="color:Red;"></span></th>
+                    </tr>
+                    <tr>
+                        <th><span class="style1">Click <a href="register.html" style="font-weight:bold;size:14px;color:black"><i>here</i></a> to SIGN UP</i></a></th>
+                    </tr>
+                </table><br /><br /><br />
+        </div>
+        </form>
+    </body>
+</html>
